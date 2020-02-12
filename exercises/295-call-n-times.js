@@ -21,3 +21,8 @@
 //
 // In this example we assume there is a function "hello" already defined and
 // that it prints "Hello, world!" to the console.
+function callNTimes(numberOfTimes,fnct) {
+  for (let count=0;count<numberOfTimes;count++) {
+    fnct()
+  }
+}

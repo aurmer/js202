@@ -7,9 +7,14 @@
 // ];
 // and returns a new array containing only those cities whose temperature is
 // cooler than 70 degrees.
-
+function coolCities (citiesArray) {
+  return citiesArray.filter((city)=>city.temperature<70)
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "cityNames" which takes an array of city objects like the
 // above problem and returns an array of the cities names.
+function cityNames (citiesArray) {
+  return citiesArray.map((city)=>city.name)
+}

@@ -4,9 +4,17 @@
 // - hello('Mustache') should return 'Hello, Mustache!'
 // - hello('banana') should return 'Hello, banana!'
 // - hello('DETROIT') should return 'Hello, DETROIT!'
-
+function hello (name) {
+  return `Hello, ${name}!`
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "helloDefault" such that if no name is given it will return
 // 'Hello, world!'
 // Otherwise it behaves the same as the "hello" function.
+function helloDefault (name) {
+  if (typeof name === "string" && name.length > 0) {
+    return `Hello, ${name}!`
+  }
+  return `Hello, world!`
+}

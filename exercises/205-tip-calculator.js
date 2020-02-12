@@ -9,7 +9,15 @@
 // Examples:
 // tipAmount(100, 'good') --> 20
 // tipAmount(40, 'fair') --> 6
+function tipAmount (billAmount, serviceDescription) {
+  const tipMap = {
+    good: .2,
+    fair: .15,
+    poor: .1
+  }
 
+  return billAmount * tipMap[serviceDescription]
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -20,7 +28,15 @@
 // Examples:
 // totalAmount(100, 'good') --> 120
 // totalAmount(40, 'fair') --> 46
+function totalAmount (billAmount, serviceDescription) {
+  const tipMap = {
+    good: .2,
+    fair: .15,
+    poor: .1
+  }
 
+  return billAmount * (1 + tipMap[serviceDescription])
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,3 +47,6 @@
 // Examples:
 // splitAmount(100, 'good', 5) --> 24
 // splitAmount(40, 'fair', 2) --> 23
+function splitAmount (billAmount, serviceDescription, numberPeople) {
+  return totalAmount(billAmount,serviceDescription) / numberPeople
+}

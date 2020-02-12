@@ -9,3 +9,40 @@
 // Examples:
 // fizzbuzz(3) --> '..fizz'
 // fizzbuzz(15) --> '..fizz.buzzfizz..fizzbuzz.fizz..fizzbuzz'
+function isDivBy (divisor) {
+  if (typeof divisor !== "number") {
+    return false
+  } else {
+    return (number) => {
+      if(typeof number !== "number") {
+        return false
+      } else {
+        return number % divisor === 0
+      }
+    }
+  }
+}
+
+function fizzbuzz(number) {
+  const isDivBy5 = isDivBy(5)
+  const isDivBy3 = isDivBy(3)
+
+  if (typeof number !== "number") {
+    return ""
+  }
+
+  let fizzString = ""
+  for (let count=1;count<=number;count++) {
+    if (isDivBy3(count)) {
+      fizzString += "fizz"
+    }
+    if (isDivBy5(count)) {
+      fizzString += "buzz"
+    }
+    if (!isDivBy3(count) && !isDivBy5(count)) {
+      fizzString += "."
+    }
+  }
+
+  return fizzString
+}

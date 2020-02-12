@@ -6,7 +6,15 @@
 // gcd(5, 1) --> 1
 // gcd(3, 15) --> 3
 // gcd(50, 20) --> 10
+function gcd (num1,num2) {
+  const smallerInput = Math.min(num1,num2)
 
+  for(let int = smallerInput; int>0; int--) {
+    if (num1%int===0 && num2%int===0) {
+      return int
+    }
+  }
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -18,4 +26,13 @@
 // factors(1) --> [1]
 // factors(12) --> [1, 2, 3, 4, 6, 12]
 // factors(42) --> [1, 2, 3, 6, 7, 14, 21, 42]
+function factors (num1) {
+  let factorArray = []
 
+  for (let int=1; int<=num1; int++) {
+    if (num1%int===0) {
+      factorArray.push(int)
+    }
+  }
+  return factorArray
+}

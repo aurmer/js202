@@ -8,3 +8,6 @@
 // 'Cheeeeese'
 // > longLongVowels('Man')
 // 'Man'
+function longLongVowels (inputString) {
+  return inputString.replace(/aa|ee|ii|oo|uu/ig,(vowelPair)=>vowelPair[0].repeat(5))
+}

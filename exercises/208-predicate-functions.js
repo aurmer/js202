@@ -19,7 +19,14 @@
 // isVowel('A') --> true
 // isVowel(99) --> false
 // isVowel({e: 'Elephant'}) --> false
-
+function isVowel (maybeVowel) {
+  const allVowels = ['a','A','e','E','i','I','o','O','u','U']
+  if (allVowels.includes(maybeVowel)) {
+    return true
+  } else {
+    return false
+  }
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,7 +42,21 @@
 // isOdd(5) --> true
 // isOdd('7') --> false
 // isOdd(3.14) --> false
+function isEven (number) {
+  if(typeof number === "number" && number % 2 === 0) {
+    return true
+  } else {
+    return false
+  }
+}
 
+function isOdd (number) {
+  if(typeof number === "number" && (number % 2 === 1 || number % 2 === -1) ) {
+    return true
+  } else {
+    return false
+  }
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,3 +73,28 @@
 // isCapitalCity('Texas', 'Houston') --> false
 // isCapitalCity('Alaska', 'Juneau') --> true
 // isCapitalCity('Strawberry', 'Mango') --> false
+function isCapitalCity (state, city) {
+  if (typeof state !== "string" && typeof city !== "string") {
+    return false
+  }
+
+  const statesList = {
+    Texas: {
+      capital: "Austin"
+    },
+    Alaska: {
+      capital: "Juneau"
+    },
+    Alabama: {
+      capital: "Montgomery"
+    },
+    Illinois: {
+      capital: "Springfield"
+    },
+    Washington: {
+      capital: "Olympia"
+    }
+  }
+  
+  return (statesList[state] !== undefined && city === statesList[state].capital)
+}

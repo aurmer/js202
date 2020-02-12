@@ -15,3 +15,16 @@
 // > ['Great job, Susan!', 'Great job, Anthony!', 'Great job, Bill!']
 //
 // Hint: What is the best data structure for the employees of the month list?
+function recognizeEmployees (arrayEmployees,arrayEoM) {
+  const RECOGNIZE = (name) => `Great job, ${name}!`
+  const EOM = (name) => `Outstanding job, ${name}!`
+
+  let EoMObject = {}
+
+  arrayEoM.forEach((name, idx) => {
+    EoMObject[name] = true
+  })
+
+
+  return arrayEmployees.map( (name) => (EoMObject[name]) ? EOM(name) : RECOGNIZE(name))
+}

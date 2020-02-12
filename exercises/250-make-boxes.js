@@ -8,8 +8,11 @@
 // *****
 // *****
 
-function makeSquare() {
-    
+function makeSquare (inputNumber) {
+  const oneRow = "*".repeat(inputNumber) + "\n"
+  const allRowsWithExtraNL = oneRow.repeat(inputNumber)
+
+  return allRowsWithExtraNL.slice(0,-1) //remove final '\n'
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -22,8 +25,14 @@ function makeSquare() {
 // *    *
 // ******
 
-function makeBox() {
+function makeBox (boxWidth,boxLength) {
+  const midRowCount = Math.max(boxLength-2,0)
+  const midColCount = Math.max(boxWidth-2,0)
+  const firstLine = (boxLength>=2) ? "*".repeat(boxWidth) + '\n' : ""
+  const lastLine = (boxLength>=1) ? "*".repeat(boxWidth) : ""
+  const midLine = `*${" ".repeat(midColCount)}*\n`
 
+  return firstLine + midLine.repeat(midRowCount) + lastLine
 }
 
 
@@ -37,6 +46,14 @@ function makeBox() {
 // * Welcome to DigitalCrafts *
 // ****************************
 
-function makeBanner() {
+function makeBanner (inputString) {
+  if (typeof inputString !== "string") {
+    inputString = ""
+  }
+  const boxWidth = inputString.length + 4
+  const topLine = "*".repeat(boxWidth) + "\n"
+  const bottomLine = "*".repeat(boxWidth)
+  const middleLine = `* ${inputString} *\n`
 
+  return topLine + middleLine + bottomLine
 }

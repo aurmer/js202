@@ -2,27 +2,34 @@
 // Complete the removeZAnimals function as described below:
 
 function removeZAnimals () {
-  // 1) declare an array with some strings
   const animals = ["alligator", "zebra", "crocodile", "giraffe"]
+  const NOMATCH = -1
 
-  // create an empty array (we will fill this with strings from the previous array)
   let animalsWithoutZ = []
 
-  // 2) loop through "animals"
-
-  // 3) add every item in "animals" to "animalsWithoutZ" unless the animal name
-  //    contains the letter "z"
-  //    HINT: remember you can search within a string
-
-  // 4) return "animalsWithoutZ"
-
+  for (let idx=0; idx < animals.length; idx++) {
+    if(animals[idx].search(/[zZ]/) === NOMATCH) {
+      animalsWithoutZ.push(animals[idx])
+    }
+  }
+  return animalsWithoutZ
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "removeAnyWordWithZ" that takes 1 argument: an array of strings
 // It should return a new array that has all of the items in the passed-in array minus
 // any words that contain the letter 'z' or 'Z' (case-insensitive)
+function removeAnyWordWithZ (stringArr) {
+  let wordsWithoutZ = []
+  const NOMATCH = -1
 
+  for (let idx=0; idx < stringArr.length; idx++) {
+    if(stringArr[idx].search(/[zZ]/) === NOMATCH) {
+      wordsWithoutZ.push(stringArr[idx])
+    }
+  }
+  return wordsWithoutZ
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,3 +42,15 @@ function removeZAnimals () {
 // Examples:
 // removeWordsWithChar(['aaa', 'bbb', 'ccc'], 'b') --> ['aaa', 'ccc']
 // removeWordsWithChar(['pizza', 'beer', 'cheese'], 'E') --> ['pizza']
+function removeWordsWithChar (stringArr, char) {
+  let wordsWithoutChar = []
+  const NOMATCH = -1
+  const charRegX = new RegExp(`[${char}]`,'i')
+
+  for (let idx=0; idx < stringArr.length; idx++) {
+    if(stringArr[idx].search(charRegX) === NOMATCH) {
+      wordsWithoutChar.push(stringArr[idx])
+    }
+  }
+  return wordsWithoutChar
+}
